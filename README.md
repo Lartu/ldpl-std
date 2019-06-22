@@ -33,12 +33,12 @@ pull from it in order to use the library.
 Every statement is documented in more detail in their own briefcase file.
 
 - **brc_lists.ldpl** (`LIST` statements):
- * `DISPLAY LIST $`
- * `SORT LIST $ ASCENDING`
- * `SORT LIST $ DESCENDING`
- * `APPEND LIST $ TO LIST $`
- * `SPLICE ELEMENT $ OF LIST $`
- * `FLIP LIST $`
+   - `DISPLAY LIST $`
+   - `SORT LIST $ ASCENDING`
+   - `SORT LIST $ DESCENDING`
+   - `APPEND LIST $ TO LIST $`
+   - `SPLICE ELEMENT $ OF LIST $`
+   - `FLIP LIST $`
 
 ## License
 
