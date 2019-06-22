@@ -1,5 +1,7 @@
 # The LDPL Standard Library
 
+![LDPLSTD Logo](https://raw.githubusercontent.com/Lartu/ldpl/master/images/tutorial-logo.png)
+
 This repository contains the LDPL Standard Library, which contains many
 useful SUB-PROCEDURES for the
 [LDPL Programming Language](https://github.com/lartu/ldpl).
