@@ -25,6 +25,9 @@ the line
 
 before the `DATA:` and `PROCEDURE:` sections.
 
+**Note:** please bear in mind that at the moment the LDPL Standard Library only works with [this experimental LDPL branch](https://github.com/Lartu/ldpl/pull/124), so if by the time you read this that particular branch hasn't been merged into master, you'll have to
+pull from it in order to use the library.
+
 ## License
 
 LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
