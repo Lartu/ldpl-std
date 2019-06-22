@@ -5,7 +5,7 @@ useful statements for the
 [LDPL Programming Language](https://github.com/lartu/ldpl) not included in the base language.
 
 The library is organized in a series of `.ldpl` files called *briefcases*,
-each containing new statements designed with to extend the functionality of LDPL in
+each containing new statements designed to extend the functionality of LDPL in
 particular areas. For example the
 `brc_lists.ldpl` briefcase includes general LIST releated statements,
 like `FLIP LIST` and `SORT LIST - ASCENDING`.
