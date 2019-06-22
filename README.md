@@ -23,6 +23,8 @@ the line
 
 `IMPORT "/route/to/std-lists.ldpl"`
 
+before the `DATA:` and `PROCEDURE:` sections.
+
 ## License
 
 LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
