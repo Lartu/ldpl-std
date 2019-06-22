@@ -1,0 +1,66 @@
+# +----------------------------------------+
+# | LDPL STANDARD LIBRARY - MATH BRIEFCASE |
+# +----------------------------------------+
+#
+# +-------------+
+# | Description |
+# +-------------+
+# This library includes mathematical STATEMENTS.
+#
+# +------------------------------+
+# | STATEMENTS in this briefcase |
+# +------------------------------+
+# * FIND SQUARE ROOT OF $ IN $
+# * STORE PI IN $
+#
+# +-----------------------------+
+# | Included STATEMENTS details |
+# +-----------------------------+
+# * FIND SQUARE ROOT OF $ IN $
+#    | Takes a number and a number variable and stores the square root of said number in that variable.
+#    | Complexity: O(n)
+# * STORE PI IN $
+#    | Takes a number variable and stores an approximate value of PI in it.
+#    | Complexity: O(1)
+
+procedure:
+# Takes a number and a number variable and stores the square root of said number in that variable.
+# Complexity: O(n)
+sub-procedure std.sqrt
+    parameters:
+        std.sqrt.num is number
+        std.sqrt.result is number
+    local data:
+        std.sqrt.g is number
+        std.sqrt.g2 is number
+        std.sqrt.n is number
+    procedure:
+        if std.sqrt.num is less than 0 then
+            display "Standard Library Error: cannot calculate the square root of a negative number." crlf
+            exit
+        else if std.sqrt.num is equal to 0 then
+            store 0 in std.sqrt.result
+            return
+        end if
+
+        in std.sqrt.g solve std.sqrt.num / 2
+        in std.sqrt.g2 solve std.sqrt.g + 1
+        while std.sqrt.g is not equal to std.sqrt.g2 do
+            in std.sqrt.n solve std.sqrt.num / std.sqrt.g
+            store std.sqrt.g in std.sqrt.g2
+            in std.sqrt.g solve (std.sqrt.g + std.sqrt.n) / 2
+        repeat
+
+        store std.sqrt.g in std.sqrt.result
+end sub-procedure
+create statement "FIND SQUARE ROOT OF $ IN $" executing std.sqrt
+
+# Takes a number variable and stores an approximate value of PI in it.
+# Complexity: O(1)
+sub-procedure std.getPi
+    parameters:
+        std.getPi.var is number
+    procedure:
+        store 3.14159265358979323846264338327950288419716939937510582097494459230781640628620 in std.getPi.var
+end sub-procedure
+create statement "STORE PI IN $" executing std.getPi
