@@ -18,7 +18,7 @@ corrections and feedback are most certainly welcome as well.
 ## How to use the LDPL Standard Library
 
 Just download the briefcase you want and IMPORT it in your LDPL source file.
-For example, if you want to include the file `std-lists.ldpl` you must add
+For example, if you want to include the file `brc_lists.ldpl` you must add
 the line
 
 `IMPORT "/route/to/std-lists.ldpl"`
