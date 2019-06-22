@@ -2,17 +2,16 @@
 
 ![LDPLSTD Logo](https://raw.githubusercontent.com/Lartu/ldpl/master/images/tutorial-logo.png)
 
-This repository contains the LDPL Standard Library, which contains many
-useful SUB-PROCEDURES for the
-[LDPL Programming Language](https://github.com/lartu/ldpl).
+This repository contains the LDPL Standard Library, which contains many new
+useful statements for the
+[LDPL Programming Language](https://github.com/lartu/ldpl) not included in the base language.
 
-The library is organized in a series of `.ldpl` files (*briefcases*),
-each containing
-SUB-PROCEDURES designed with a certain context in mind. For example the
-`std-lists.ldpl` briefcase includes general LIST releated SUB-PROCEDURES,
-like reversing a list or sorting its elements.
+The library is organized in a series of `.ldpl` files called *briefcases*,
+each containing statements designed with a certain context in mind. For example the
+`std-lists.ldpl` briefcase includes general LIST releated statements,
+like `FLIP LIST` and `SORT LIST - ASCENDING`.
 
-New SUB-PROCEDURES and entire briefcases are welcome contributions,
+New statements and entire briefcases are welcome contributions,
 corrections and feedback are most certainly welcome as well.
 
 ## How to use the LDPL Standard Library
@@ -30,4 +29,4 @@ pull from it in order to use the library.
 
 ## License
 
-LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos where created by [Lartu](https://github.com/Lartu) and are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.

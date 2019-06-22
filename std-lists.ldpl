@@ -5,73 +5,44 @@
 # +-------------+
 # | Description |
 # +-------------+
-# This library includes SUB-PROCEDURES to work with lists.
+# This library includes STATEMENTS to work with lists.
 #
-# +--------------+
-# | Nomenclature |
-# +--------------+
-# The nomenclature used to name the SUB-PROCEDURES follows the pattern ABCD where
-# * A is a word describing what the SUB-PROCEDURE does.
-# * B is 'N' or 'T' depending on whether the SUB-PROCEDURE works on a 'N'UMBER LIST
-#   or a 'T'EXT LIST.
-# * C is 'List'
-# * D is an optional extra detail (for example if the list is sorted in 'Asc'ending
-#   or 'Desc'ending order).
+# +------------------------------+
+# | STATEMENTS in this briefcase |
+# +------------------------------+
+# * DISPLAY LIST $
+# * SORT LIST $ ASCENDING
+# * SORT LIST $ DESCENDING
+# * APPEND LIST $ TO LIST $
+# * SPLICE ELEMENT $ OF LIST $
+# * FLIP LIST $
 #
-# +----------------------------------+
-# | SUB-PROCEDURES in this briefcase |
-# +----------------------------------+
-# * displayNList (listToPrint IN NUMBER LIST)
-# * displayTList (listToPrint IN TEXT LIST)
-# * sortNListAsc (listToSort IN/OUT NUMBER LIST)
-# * sortNListDesc (listToSort IN/OUT NUMBER LIST)
-# * appendNList (firstList IN/OUT NUMBER LIST, secondList IN NUMBER LIST)
-# * appendTList (firstList IN/OUT TEXT LIST, secondList IN TEXT LIST)
-# * spliceNList (listToSplice IN/OUT NUMBER LIST, indexToSplice IN NUMBER)
-# * spliceTList (listToSplice IN/OUT TEXT LIST, indexToSplice IN NUMBER)
-# * reverseNList (listToReverse IN/OUT NUMBER LIST)
-# * reverseTList (listToReverse IN/OUT TEXT LIST)
-#
-# +--------------------------------+
-# | Included SUB-PROCEDURE details |
-# +--------------------------------+
-# * displayNList (listToPrint IN NUMBER LIST)
-#    | Takes a number list and displays it.
+# +-----------------------------+
+# | Included STATEMENTS details |
+# +-----------------------------+
+# * DISPLAY LIST $
+#    | Takes a number list or a text list and displays it.
 #    | Complexity: O(n)
-# * displayTList (listToPrint IN TEXT LIST)
-#    | Takes a text list and displays it.
-#    | Complexity: O(n)
-# * sortNListAsc (listToSort IN/OUT NUMBER LIST)
+# * SORT LIST $ ASCENDING
 #    | Takes a number list and sorts it in ascending order.
 #    | Complexity: O(n²)
-# * sortNListDesc (listToSort IN/OUT NUMBER LIST)
+# * SORT LIST $ DESCENDING
 #    | Takes a number list and sorts it in descending order.
 #    | Complexity: O(n²)
-# * appendNList (firstList IN/OUT NUMBER LIST, secondList IN NUMBER LIST)
-#    | Takes a two number lists and appends the later to the former.
+# * APPEND LIST $ TO LIST $
+#    | Takes a two lists of the same type and appends the former to the later.
 #    | Complexity: O(n) with n the length of the second list.
-# * appendTList (firstList IN/OUT TEXT LIST, secondList IN TEXT LIST)
-#    | Takes a two text lists and appends the later to the former.
-#    | Complexity: O(n) with n the length of the second list.
-# * spliceNList (listToSplice IN/OUT NUMBER LIST, indexToSplice IN NUMBER)
-#    | Takes a number list and an index and removes the element
-#    | at the given index from the list.
+# * SPLICE ELEMENT $ OF LIST $
+#    | Takes an index and a list and removes the element at the given index from the list.
 #    | Complexity: O(n)
-# * spliceTList (listToSplice IN/OUT TEXT LIST, indexToSplice IN NUMBER)
-#    | Takes a text list and an index and removes the element
-#    | at the given index from the list.
-#    | Complexity: O(n)
-# * reverseNList (listToReverse IN/OUT NUMBER LIST)
-#    | Takes a number list and inverts the order of its elements.
-#    | Complexity: O(n)
-# * reverseTList (listToReverse IN/OUT TEXT LIST)
-#    | Takes a text list and inverts the order of its elements.
+# * FLIP LIST $
+#    | Takes a list and inverts the order of its elements.
 #    | Complexity: O(n)
 
 procedure:
 # Takes a number list and displays it.
 # Complexity O(n)
-sub-procedure displayNList
+sub-procedure std.displayNList
     parameters:
         listToPrint is number list
     local data:
@@ -90,10 +61,11 @@ sub-procedure displayNList
         repeat
         display "]" crlf
 end sub-procedure
+create statement "DISPLAY LIST $" executing std.displayNList
 
 # Takes a text list and displays it.
 # Complexity O(n)
-sub-procedure displayTList
+sub-procedure std.displayTList
     parameters:
         listToPrint is text list
     local data:
@@ -112,10 +84,11 @@ sub-procedure displayTList
         repeat
         display "]" crlf
 end sub-procedure
+create statement "DISPLAY LIST $" executing std.displayTList
 
 # Takes a number list and sorts it in ascending order.
 # Complexity O(n²)
-sub-procedure sortNListAsc
+sub-procedure std.sortNListAsc
     parameters:
         listToSort is number list
     local data:
@@ -130,18 +103,19 @@ sub-procedure sortNListAsc
 
         for i from 0 to listLength-1 step 1 do
             for j from 1 to listLength step 1 do
-                if list:j is less than list:i then
-                    store list:i in swap
-                    store list:j in list:i
-                    store swap in list:j
+                if listToSort:j is less than listToSort:i then
+                    store listToSort:i in swap
+                    store listToSort:j in listToSort:i
+                    store swap in listToSort:j
                 end if
             repeat
         repeat
 end sub-procedure
+create statement "SORT LIST $ ASCENDING" executing std.sortNListAsc
 
 # Takes a number list and sorts it in descending order.
 # Complexity O(n²)
-sub-procedure sortNListDesc
+sub-procedure std.sortNListDesc
     parameters:
         listToSort is number list
     local data:
@@ -156,21 +130,22 @@ sub-procedure sortNListDesc
 
         for i from 0 to listLength-1 step 1 do
             for j from 1 to listLength step 1 do
-                if list:j is greater than list:i then
-                    store list:i in swap
-                    store list:j in list:i
-                    store swap in list:j
+                if listToSort:j is greater than listToSort:i then
+                    store listToSort:i in swap
+                    store listToSort:j in listToSort:i
+                    store swap in listToSort:j
                 end if
             repeat
         repeat
 end sub-procedure
+create statement "SORT LIST $ DESCENDING" executing std.sortNListDesc
 
-# Takes a two number lists and appends the later to the former.
+# Takes a two number lists and appends the former to the later.
 # Complexity O(n) with n the length of the second list.
-sub-procedure appendNList
+sub-procedure std.appendNList
     parameters:
-        firstList is number list
         secondList is number list
+        firstList is number list
     local data:
         i is number
     procedure:
@@ -178,13 +153,14 @@ sub-procedure appendNList
             push i to firstList
         repeat
 end sub-procedure
+create statement "APPEND LIST $ TO LIST $" executing std.appendNList
 
-# Takes a two text lists and appends the later to the former.
+# Takes a two text lists and appends the former to the later.
 # Complexity O(n) with n the length of the second list.
-sub-procedure appendTList
+sub-procedure std.appendTList
     parameters:
-        firstList is text list
         secondList is text list
+        firstList is text list
     local data:
         i is text
     procedure:
@@ -192,14 +168,15 @@ sub-procedure appendTList
             push i to firstList
         repeat
 end sub-procedure
+create statement "APPEND LIST $ TO LIST $" executing std.appendTList
 
 # Takes a number list and an index and removes the element
 # at the given index from the list.
 # Complexity O(n)
-sub-procedure spliceNList
+sub-procedure std.spliceNList
     parameters:
-        listToSplice is number list
         indexToSplice is number
+        listToSplice is number list
     local data:
         listLength is number
         i is number
@@ -213,14 +190,15 @@ sub-procedure spliceNList
         repeat
         copy newList to listToSplice
 end sub-procedure
+create statement "SPLICE ELEMENT $ OF LIST $" executing std.spliceNList
 
 # Takes a text list and an index and removes the element
 # at the given index from the list.
 # Complexity O(n)
-sub-procedure spliceTList
+sub-procedure std.spliceTList
     parameters:
-        listToSplice is text list
         indexToSplice is number
+        listToSplice is text list
     local data:
         listLength is number
         i is number
@@ -234,10 +212,11 @@ sub-procedure spliceTList
         repeat
         copy newList to listToSplice
 end sub-procedure
+create statement "SPLICE ELEMENT $ OF LIST $" executing std.spliceTList
 
 # Takes a number list and inverts the order of its elements.
 # Complexity O(n)
-sub-procedure reverseNList
+sub-procedure std.reverseNList
     parameters:
         listToReverse is number list
     local data:
@@ -252,10 +231,11 @@ sub-procedure reverseNList
         repeat
         copy reversedList to listToReverse
 end sub-procedure
+create statement "FLIP LIST $" executing std.reverseNList
 
 # Takes a text list and inverts the order of its elements.
 # Complexity O(n)
-sub-procedure reverseTList
+sub-procedure std.reverseTList
     parameters:
         listToReverse is text list
     local data:
@@ -270,3 +250,4 @@ sub-procedure reverseTList
         repeat
         copy reversedList to listToReverse
 end sub-procedure
+create statement "FLIP LIST $" executing std.reverseTList
