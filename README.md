@@ -2,13 +2,14 @@
 
 ![LDPLSTD Logo](https://raw.githubusercontent.com/Lartu/ldpl/master/images/tutorial-logo.png)
 
-This repository contains the LDPL Standard Library, which contains many new
+This repository contains the LDPL Standard Library, which contains many
 useful statements for the
 [LDPL Programming Language](https://github.com/lartu/ldpl) not included in the base language.
 
 The library is organized in a series of `.ldpl` files called *briefcases*,
-each containing statements designed with a certain context in mind. For example the
-`std-lists.ldpl` briefcase includes general LIST releated statements,
+each containing new statements designed with to extend the functionality of LDPL in
+particular areas. For example the
+`brc_lists.ldpl` briefcase includes general LIST releated statements,
 like `FLIP LIST` and `SORT LIST - ASCENDING`.
 
 New statements and entire briefcases are welcome contributions,
@@ -26,6 +27,18 @@ before the `DATA:` and `PROCEDURE:` sections.
 
 **Note:** please bear in mind that at the moment the LDPL Standard Library only works with [this experimental LDPL branch](https://github.com/Lartu/ldpl/pull/124), so if by the time you read this that particular branch hasn't been merged into master, you'll have to
 pull from it in order to use the library.
+
+## Statements included in every briefcase
+
+Every statement is documented in more detail in their own briefcase file.
+
+- **brc_lists.ldpl** (`LIST` statements):
+ - `DISPLAY LIST $`
+ - `SORT LIST $ ASCENDING`
+ - `SORT LIST $ DESCENDING`
+ - `APPEND LIST $ TO LIST $`
+ - `SPLICE ELEMENT $ OF LIST $`
+ - `FLIP LIST $`
 
 ## License
 
