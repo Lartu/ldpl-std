@@ -46,4 +46,4 @@ Every statement is documented in more detail in their own briefcase file.
 
 ## License
 
-LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos where created by [Lartu](https://github.com/Lartu) and are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+The LDPL Standard Library is distributed under the MIT License. LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos where created by [Lartu](https://github.com/Lartu) and are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
