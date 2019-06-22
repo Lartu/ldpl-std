@@ -1,0 +1,272 @@
+# +-----------------------------------------+
+# | LDPL STANDARD LIBRARY - LISTS BRIEFCASE |
+# +-----------------------------------------+
+#
+# +-------------+
+# | Description |
+# +-------------+
+# This library includes SUB-PROCEDURES to work with lists.
+#
+# +--------------+
+# | Nomenclature |
+# +--------------+
+# The nomenclature used to name the SUB-PROCEDURES follows the pattern ABCD where
+# * A is a word describing what the SUB-PROCEDURE does.
+# * B is 'N' or 'T' depending on whether the SUB-PROCEDURE works on a 'N'UMBER LIST
+#   or a 'T'EXT LIST.
+# * C is 'List'
+# * D is an optional extra detail (for example if the list is sorted in 'Asc'ending
+#   or 'Desc'ending order).
+#
+# +----------------------------------+
+# | SUB-PROCEDURES in this briefcase |
+# +----------------------------------+
+# * displayNList (listToPrint IN NUMBER LIST)
+# * displayTList (listToPrint IN TEXT LIST)
+# * sortNListAsc (listToSort IN/OUT NUMBER LIST)
+# * sortNListDesc (listToSort IN/OUT NUMBER LIST)
+# * appendNList (firstList IN/OUT NUMBER LIST, secondList IN NUMBER LIST)
+# * appendTList (firstList IN/OUT TEXT LIST, secondList IN TEXT LIST)
+# * spliceNList (listToSplice IN/OUT NUMBER LIST, indexToSplice IN NUMBER)
+# * spliceTList (listToSplice IN/OUT TEXT LIST, indexToSplice IN NUMBER)
+# * reverseNList (listToReverse IN/OUT NUMBER LIST)
+# * reverseTList (listToReverse IN/OUT TEXT LIST)
+#
+# +--------------------------------+
+# | Included SUB-PROCEDURE details |
+# +--------------------------------+
+# * displayNList (listToPrint IN NUMBER LIST)
+#    | Takes a number list and displays it.
+#    | Complexity: O(n)
+# * displayTList (listToPrint IN TEXT LIST)
+#    | Takes a text list and displays it.
+#    | Complexity: O(n)
+# * sortNListAsc (listToSort IN/OUT NUMBER LIST)
+#    | Takes a number list and sorts it in ascending order.
+#    | Complexity: O(n²)
+# * sortNListDesc (listToSort IN/OUT NUMBER LIST)
+#    | Takes a number list and sorts it in descending order.
+#    | Complexity: O(n²)
+# * appendNList (firstList IN/OUT NUMBER LIST, secondList IN NUMBER LIST)
+#    | Takes a two number lists and appends the later to the former.
+#    | Complexity: O(n) with n the length of the second list.
+# * appendTList (firstList IN/OUT TEXT LIST, secondList IN TEXT LIST)
+#    | Takes a two text lists and appends the later to the former.
+#    | Complexity: O(n) with n the length of the second list.
+# * spliceNList (listToSplice IN/OUT NUMBER LIST, indexToSplice IN NUMBER)
+#    | Takes a number list and an index and removes the element
+#    | at the given index from the list.
+#    | Complexity: O(n)
+# * spliceTList (listToSplice IN/OUT TEXT LIST, indexToSplice IN NUMBER)
+#    | Takes a text list and an index and removes the element
+#    | at the given index from the list.
+#    | Complexity: O(n)
+# * reverseNList (listToReverse IN/OUT NUMBER LIST)
+#    | Takes a number list and inverts the order of its elements.
+#    | Complexity: O(n)
+# * reverseTList (listToReverse IN/OUT TEXT LIST)
+#    | Takes a text list and inverts the order of its elements.
+#    | Complexity: O(n)
+
+procedure:
+# Takes a number list and displays it.
+# Complexity O(n)
+sub-procedure displayNList
+    parameters:
+        listToPrint is number list
+    local data:
+        listLength is number
+        i is number
+    procedure:
+        display "["
+        store length of listToPrint in listLength
+        for i from 0 to listLength step 1 do
+            display listToPrint:i
+            decr listLength
+            if i is less than listLength then
+                display ", "
+            end if
+            incr listLength
+        repeat
+        display "]" crlf
+end sub-procedure
+
+# Takes a text list and displays it.
+# Complexity O(n)
+sub-procedure displayTList
+    parameters:
+        listToPrint is text list
+    local data:
+        listLength is number
+        i is number
+    procedure:
+        display "["
+        store length of listToPrint in listLength
+        for i from 0 to listLength step 1 do
+            display listToPrint:i
+            decr listLength
+            if i is less than listLength then
+                display ", "
+            end if
+            incr listLength
+        repeat
+        display "]" crlf
+end sub-procedure
+
+# Takes a number list and sorts it in ascending order.
+# Complexity O(n²)
+sub-procedure sortNListAsc
+    parameters:
+        listToSort is number list
+    local data:
+        listLength is number
+        listLength-1 is number
+        i is number
+        j is number
+        swap is number
+    procedure:
+        store length of listToSort in listLength
+        subtract 1 from listLength in listLength-1
+
+        for i from 0 to listLength-1 step 1 do
+            for j from 1 to listLength step 1 do
+                if list:j is less than list:i then
+                    store list:i in swap
+                    store list:j in list:i
+                    store swap in list:j
+                end if
+            repeat
+        repeat
+end sub-procedure
+
+# Takes a number list and sorts it in descending order.
+# Complexity O(n²)
+sub-procedure sortNListDesc
+    parameters:
+        listToSort is number list
+    local data:
+        listLength is number
+        listLength-1 is number
+        i is number
+        j is number
+        swap is number
+    procedure:
+        store length of listToSort in listLength
+        subtract 1 from listLength in listLength-1
+
+        for i from 0 to listLength-1 step 1 do
+            for j from 1 to listLength step 1 do
+                if list:j is greater than list:i then
+                    store list:i in swap
+                    store list:j in list:i
+                    store swap in list:j
+                end if
+            repeat
+        repeat
+end sub-procedure
+
+# Takes a two number lists and appends the later to the former.
+# Complexity O(n) with n the length of the second list.
+sub-procedure appendNList
+    parameters:
+        firstList is number list
+        secondList is number list
+    local data:
+        i is number
+    procedure:
+        for each i in secondList do
+            push i to firstList
+        repeat
+end sub-procedure
+
+# Takes a two text lists and appends the later to the former.
+# Complexity O(n) with n the length of the second list.
+sub-procedure appendTList
+    parameters:
+        firstList is text list
+        secondList is text list
+    local data:
+        i is text
+    procedure:
+        for each i in secondList do
+            push i to firstList
+        repeat
+end sub-procedure
+
+# Takes a number list and an index and removes the element
+# at the given index from the list.
+# Complexity O(n)
+sub-procedure spliceNList
+    parameters:
+        listToSplice is number list
+        indexToSplice is number
+    local data:
+        listLength is number
+        i is number
+        newList is number list
+    procedure:
+        store length of listToSplice in listLength
+        for i from 0 to listLength step 1 do 
+            if i is not equal to indexToSplice then
+                push listToSplice:i to newList
+            end if
+        repeat
+        copy newList to listToSplice
+end sub-procedure
+
+# Takes a text list and an index and removes the element
+# at the given index from the list.
+# Complexity O(n)
+sub-procedure spliceTList
+    parameters:
+        listToSplice is text list
+        indexToSplice is number
+    local data:
+        listLength is number
+        i is number
+        newList is text list
+    procedure:
+        store length of listToSplice in listLength
+        for i from 0 to listLength step 1 do 
+            if i is not equal to indexToSplice then
+                push listToSplice:i to newList
+            end if
+        repeat
+        copy newList to listToSplice
+end sub-procedure
+
+# Takes a number list and inverts the order of its elements.
+# Complexity O(n)
+sub-procedure reverseNList
+    parameters:
+        listToReverse is number list
+    local data:
+        reversedList is number list
+        i is number
+    procedure:
+        store length of listToReverse in i
+        decr i
+        while i is greater than or equal to 0 do
+            push listToReverse:i to reversedList
+            decr i
+        repeat
+        copy reversedList to listToReverse
+end sub-procedure
+
+# Takes a text list and inverts the order of its elements.
+# Complexity O(n)
+sub-procedure reverseTList
+    parameters:
+        listToReverse is text list
+    local data:
+        reversedList is text list
+        i is number
+    procedure:
+        store length of listToReverse in i
+        decr i
+        while i is greater than or equal to 0 do
+            push listToReverse:i to reversedList
+            decr i
+        repeat
+        copy reversedList to listToReverse
+end sub-procedure
