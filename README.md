@@ -40,7 +40,7 @@ Every statement is documented in more detail in their own briefcase file.
 
 - **brc_math.ldpl** (mathematical statements):
    - `FIND SQUARE ROOT OF $ IN $`
-   - `STORE PI IN $`
+   - `PI` constant
 
 - **brc_random.ldpl** (random statements):
    - `STORE RANDOM BETWEEN $ AND $ IN $`
