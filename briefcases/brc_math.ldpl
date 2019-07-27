@@ -16,6 +16,14 @@
 # | STATEMENTS in this briefcase |
 # +------------------------------+
 # * FIND SQUARE ROOT OF $ IN $
+# * ADD $ AND $ IN $
+# * SUBTRACT $ FROM $ IN $
+# * MULTIPLY $ BY $ IN $
+# * DIVIDE $ BY $ IN $
+# * INCR $
+# * DECR $
+# * CEIL $
+# * ABS $
 #
 # +-----------------------------+
 # | Included STATEMENTS details |
@@ -23,11 +31,21 @@
 # * FIND SQUARE ROOT OF $ IN $
 #    | Takes a number and a number variable and stores the square root of said number in that variable.
 #    | Complexity: O(n)
+# * INCR $
+#    | Takes a number variable and increases its value by 1
+#    | Complexity: O(1)
+# * DECR $
+#    | Takes a number variable and decreases its value by 1
+#    | Complexity: O(1)
 
 data:
 PI is number
 
 procedure:
+
+# Pi Constant
+store 3.14159265358979323846264338327950288419716939937510582097494459230781640628620 in PI
+
 # Takes a number and a number variable and stores the square root of said number in that variable.
 # Complexity: O(n)
 sub-procedure std.sqrt
@@ -59,5 +77,77 @@ sub-procedure std.sqrt
 end sub-procedure
 create statement "FIND SQUARE ROOT OF $ IN $" executing std.sqrt
 
-# Pi Constant
-store 3.14159265358979323846264338327950288419716939937510582097494459230781640628620 in PI
+sub std.add
+    parameters:
+        a is number
+        b is number
+        dest is number
+    procedure:
+        in dest solve a + b
+end sub-procedure
+create statement "ADD $ AND $ IN $" executing std.add
+
+sub std.subtract
+    parameters:
+        a is number
+        b is number
+        dest is number
+    procedure:
+        in dest solve b - a
+end sub-procedure
+create statement "SUBTRACT $ FROM $ IN $" executing std.subtract
+
+sub std.multiply
+    parameters:
+        a is number
+        b is number
+        dest is number
+    procedure:
+        in dest solve a * b
+end sub-procedure
+create statement "MULTIPLY $ BY $ IN $" executing std.multiply
+
+sub std.divide
+    parameters:
+        a is number
+        b is number
+        dest is number
+    procedure:
+        in dest solve a / b
+end sub-procedure
+create statement "DIVIDE $ BY $ IN $" executing std.divide
+
+sub std.incr
+    parameters:
+        var is number
+    procedure:
+        add 1 and var in var
+end sub-procedure
+create statement "INCR $" executing std.incr
+
+sub std.decr
+    parameters:
+        var is number
+    procedure:
+        subtract 1 from var in var
+end sub-procedure
+create statement "DECR $" executing std.decr
+
+sub std.ceil
+    parameters:
+        var is number
+    procedure:
+        incr var
+        floor var
+end sub-procedure
+create statement "CEIL $" executing std.decr
+
+sub std.abs
+    parameters:
+        var is number
+    procedure:
+        if var is less than 0 then
+            multiply var by -1 in var
+        end if
+end sub-procedure
+create statement "ABS $" executing std.abs
