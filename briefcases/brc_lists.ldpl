@@ -220,16 +220,19 @@ sub-procedure std.reverseNList
     parameters:
         listToReverse is number list
     local data:
-        reversedList is number list
-        i is number
+        left is number
+        right is number
+        swapAux is number
     procedure:
-        store length of listToReverse in i
-        decr i
-        while i is greater than or equal to 0 do
-            push listToReverse:i to reversedList
-            decr i
+        store length of listToReverse in right
+        decr right
+        while left is less than right do
+            store listToReverse:left in swapAux
+            store listToReverse:right in listToReverse:left
+            store swapAux in listToReverse:right
+            incr left
+            decr right
         repeat
-        copy reversedList to listToReverse
 end sub-procedure
 create statement "FLIP LIST $" executing std.reverseNList
 
@@ -239,15 +242,18 @@ sub-procedure std.reverseTList
     parameters:
         listToReverse is text list
     local data:
-        reversedList is text list
-        i is number
+        left is number
+        right is number
+        swapAux is text
     procedure:
-        store length of listToReverse in i
-        decr i
-        while i is greater than or equal to 0 do
-            push listToReverse:i to reversedList
-            decr i
+        store length of listToReverse in right
+        decr right
+        while left is less than right do
+            store listToReverse:left in swapAux
+            store listToReverse:right in listToReverse:left
+            store swapAux in listToReverse:right
+            incr left
+            decr right
         repeat
-        copy reversedList to listToReverse
 end sub-procedure
 create statement "FLIP LIST $" executing std.reverseTList

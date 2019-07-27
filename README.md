@@ -1,13 +1,11 @@
-# The LDPL Standard Library
-
-![LDPLSTD Logo](https://raw.githubusercontent.com/Lartu/ldpl/master/images/tutorial-logo.png)
+![The LDPL Standard Library](https://raw.githubusercontent.com/Lartu/ldpl-std/master/images/logo-readme.png)
 
 This repository contains the LDPL Standard Library, which contains many
 useful statements for the
 [LDPL Programming Language](https://github.com/lartu/ldpl) not included in the base language.
 
 The library is organized in a series of `.ldpl` files called *briefcases*,
-each containing new statements designed with to extend the functionality of LDPL in
+each containing new statements designed to extend the functionality of LDPL in
 particular areas. For example the
 `brc_lists.ldpl` briefcase includes general LIST releated statements,
 like `FLIP LIST` and `SORT LIST - ASCENDING`.
@@ -42,7 +40,13 @@ Every statement is documented in more detail in their own briefcase file.
 
 - **brc_math.ldpl** (mathematical statements):
    - `FIND SQUARE ROOT OF $ IN $`
-   - `STORE PI IN $`
+   - `PI` constant
+
+- **brc_random.ldpl** (random statements):
+   - `STORE RANDOM BETWEEN $ AND $ IN $`
+   - `STORE RANDOM INTEGER BETWEEN $ AND $ IN $`
+   - `GET RANDOM ELEMENT FROM LIST $ IN $`
+   - `SHUFFLE LIST $`
 
 ## License
 

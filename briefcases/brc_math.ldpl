@@ -7,11 +7,15 @@
 # +-------------+
 # This library includes mathematical STATEMENTS.
 #
+# +-----------------------------+
+# | CONSTANTS in this briefcase |
+# +-----------------------------+
+# * PI (approximate value of the irrational PI number)
+#
 # +------------------------------+
 # | STATEMENTS in this briefcase |
 # +------------------------------+
 # * FIND SQUARE ROOT OF $ IN $
-# * STORE PI IN $
 #
 # +-----------------------------+
 # | Included STATEMENTS details |
@@ -19,9 +23,9 @@
 # * FIND SQUARE ROOT OF $ IN $
 #    | Takes a number and a number variable and stores the square root of said number in that variable.
 #    | Complexity: O(n)
-# * STORE PI IN $
-#    | Takes a number variable and stores an approximate value of PI in it.
-#    | Complexity: O(1)
+
+data:
+PI is number
 
 procedure:
 # Takes a number and a number variable and stores the square root of said number in that variable.
@@ -55,12 +59,5 @@ sub-procedure std.sqrt
 end sub-procedure
 create statement "FIND SQUARE ROOT OF $ IN $" executing std.sqrt
 
-# Takes a number variable and stores an approximate value of PI in it.
-# Complexity: O(1)
-sub-procedure std.getPi
-    parameters:
-        std.getPi.var is number
-    procedure:
-        store 3.14159265358979323846264338327950288419716939937510582097494459230781640628620 in std.getPi.var
-end sub-procedure
-create statement "STORE PI IN $" executing std.getPi
+# Pi Constant
+store 3.14159265358979323846264338327950288419716939937510582097494459230781640628620 in PI
