@@ -1,0 +1,68 @@
+# +--------------------------------------+
+# | LDPL STANDARD LIBRARY - OS BRIEFCASE |
+# +--------------------------------------+
+#
+# +-------------+
+# | Description |
+# +-------------+
+# This library includes functions to deal with the operating system.
+#
+# +------------------------------+
+# | STATEMENTS in this briefcase |
+# +------------------------------+
+# * GET OS IN $
+# * LIST CONTENTS OF DIRECTORY $ IN $
+#
+# +-----------------------------+
+# | Included STATEMENTS details |
+# +-----------------------------+
+# * GET OS IN $
+#    | Takes a text variable and stores WINDOWS or UNIX in it depending on the OS the program is running on.
+#    | Complexity: O(1)
+# * LIST CONTENTS OF DIRECTORY $ IN $
+#    | Takes a text and a text list variable and stores all the files in the directory named by the text in the list.
+#    | Complexity: O(n)
+
+sub-procedure std.discoverOs
+    # Created by fireasembler (github.com/fireasembler)
+    local data:
+        os is text
+        output is text
+    procedure:
+    # discovers the scripting language that the os defaults to:
+    # either batch for windows or <something>sh (like bash) for almost everything else.
+    execute "echo \"$OSTYPE\"" and store output in output
+    # $OSTYPE is a variable that is defined on all major posix compliant operating systems.
+    # windows is not posix compliant, which means that this variable isn't defined.
+    # because of that, the result of the command on almost all operating systems
+    # is going to be the name of the os, while on windows it will just output "$OSTYPE".
+    # we are going to exploit this in order to determine if the command is ran on windows.
+    if output is equal to "\"$OSTYPE\"\n" then
+        store "WINDOWS" in os
+    else
+        store "UNIX" in os
+    end if
+end sub-procedure
+create statement "GET OS IN $" executing std.discoverOs
+
+sub-procedure getdir.getFilenames
+    # Created by fireasembler (github.com/fireasembler)
+    parameters:
+        directory is text
+        destination is text list
+    local data:
+        os is text
+        command is text
+        commandOutput is text
+    procedure:
+        get os in os
+        # use this subprocedure unless you know what you're doing
+        if os is equal to "WINDOWS" then
+            in command join "dir " directory " /b /a-d"
+        else
+            in command join "findc" directory "* -maxdepth 0 -type f "
+        end if
+        execute command and store output in commandOutput
+            split commandOutput by "\n" in destination
+end sub-procedure
+create statement "LIST CONTENTS OF DIRECTORY $ IN $" executing std.discoverOs
