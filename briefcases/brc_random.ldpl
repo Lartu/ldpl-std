@@ -10,18 +10,18 @@
 # +------------------------------+
 # | STATEMENTS in this briefcase |
 # +------------------------------+
-# * STORE RANDOM BETWEEN $ AND $ IN $
-# * STORE RANDOM INTEGER BETWEEN $ AND $ IN $
+# * GET RANDOM BETWEEN $ AND $ IN $
+# * GET RANDOM INTEGER BETWEEN $ AND $ IN $
 # * GET RANDOM ELEMENT FROM LIST $ IN $
 # * SHUFFLE LIST $
 #
 # +-----------------------------+
 # | Included STATEMENTS details |
 # +-----------------------------+
-# * STORE RANDOM BETWEEN $ AND $ IN $
+# * GET RANDOM BETWEEN $ AND $ IN $
 #    | Takes three numbers and stores a random number between the first (inclusive) and the second (noninclusive) in the third.
 #    | Complexity: O(1)
-# * STORE RANDOM INTEGER BETWEEN $ AND $ IN $
+# * GET RANDOM INTEGER BETWEEN $ AND $ IN $
 #    | Takes three numbers and stores a random integer between the first and the second (both inclusive) in the third.
 #    | Complexity: O(1)
 # * GET RANDOM ELEMENT FROM LIST $ IN $
@@ -40,10 +40,10 @@ sub-procedure std.randomBetween
         b is number
         res is number
     procedure:
-        store random in res
+        get random in res
         in res solve a + res * (b - a)
 end sub-procedure
-create statement "STORE RANDOM BETWEEN $ AND $ IN $" executing std.randomBetween
+create statement "GET RANDOM BETWEEN $ AND $ IN $" executing std.randomBetween
 
 # Takes three numbers and stores a random integer between the first and the second (both inclusive) in the third.
 # Complexity: O(1)
@@ -58,13 +58,16 @@ sub-procedure std.randomIntBetween
     procedure:
         store a in aInt
         store b in bInt
-        ceil aInt
+        floor aInt
+        if aInt is not equal to a then
+            in aInt solve aInt + 1
+        end if
         floor bInt
-        incr bInt
-        store random between aInt and bInt in res
+        in bInt solve bInt + 1
+        get random between aInt and bInt in res
         floor res
 end sub-procedure
-create statement "STORE RANDOM INTEGER BETWEEN $ AND $ IN $" executing std.randomIntBetween
+create statement "GET RANDOM INTEGER BETWEEN $ AND $ IN $" executing std.randomIntBetween
 
 # Takes a number list and a number varible and stores a random element of the list in the variable.
 # Complexity: O(1)
@@ -76,13 +79,13 @@ sub-procedure std.getRandomNElement
         listLength is number
         randomIndex is number
     procedure:
-        store length of list in listLength
+        get length of list in listLength
         if listLength is equal to 0 then
             display "Standard Library Error: cannot get an random element from an empty list." crlf
             exit
         end if
-        decr listLength
-        store random integer between 0 and listLength in randomIndex
+        in listLength solve listLength - 1
+        get random integer between 0 and listLength in randomIndex
         store list:randomIndex in randomElement
 end sub-procedure
 create statement "GET RANDOM ELEMENT FROM LIST $ IN $" executing std.getRandomNElement
@@ -97,13 +100,13 @@ sub-procedure std.getRandomTElement
         listLength is number
         randomIndex is number
     procedure:
-        store length of list in listLength
+        get length of list in listLength
         if listLength is equal to 0 then
             display "Standard Library Error: cannot get an random element from an empty list." crlf
             exit
         end if
-        decr listLength
-        store random integer between 0 and listLength in randomIndex
+        in listLength solve listLength - 1
+        get random integer between 0 and listLength in randomIndex
         store list:randomIndex in randomElement
 end sub-procedure
 create statement "GET RANDOM ELEMENT FROM LIST $ IN $" executing std.getRandomTElement
@@ -120,10 +123,10 @@ sub-procedure std.suffleNList
         swapAux is number
     procedure:
         # Fisher–Yates Shuffle
-        store length of list in listLength
-        decr listLength
+        get length of list in listLength
+        in listLength solve listLength - 1
         for i from listLength to -1 step -1 do
-            store random integer between 0 and i in randomIndex
+            get random integer between 0 and i in randomIndex
             store list:i in swapAux
             store list:randomIndex in list:i
             store swapAux in list:randomIndex
@@ -143,10 +146,10 @@ sub-procedure std.suffleTList
         swapAux is text
     procedure:
         # Fisher–Yates Shuffle
-        store length of list in listLength
-        decr listLength
+        get length of list in listLength
+        in listLength solve listLength - 1
         for i from listLength to 0 step -1 do
-            store random integer between 0 and i in randomIndex
+            get random integer between 0 and i in randomIndex
             store list:i in swapAux
             store list:randomIndex in list:i
             store swapAux in list:randomIndex

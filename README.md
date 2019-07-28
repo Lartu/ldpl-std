@@ -43,8 +43,8 @@ Every statement is documented in more detail in their own briefcase file.
    - `PI` constant
 
 - **brc_random.ldpl** (random statements):
-   - `STORE RANDOM BETWEEN $ AND $ IN $`
-   - `STORE RANDOM INTEGER BETWEEN $ AND $ IN $`
+   - `GET RANDOM BETWEEN $ AND $ IN $`
+   - `GET RANDOM INTEGER BETWEEN $ AND $ IN $`
    - `GET RANDOM ELEMENT FROM LIST $ IN $`
    - `SHUFFLE LIST $`
 
