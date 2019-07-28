@@ -1,0 +1,37 @@
+# +--------------------------------------+
+# | LDPL STANDARD LIBRARY - OS BRIEFCASE |
+# +--------------------------------------+
+#
+# +-------------+
+# | Description |
+# +-------------+
+# This library includes functions to deal with the operating system.
+#
+# +------------------------------+
+# | STATEMENTS in this briefcase |
+# +------------------------------+
+# * LIST CONTENTS OF DIRECTORY $ IN $
+#
+# +-----------------------------+
+# | Included STATEMENTS details |
+# +-----------------------------+
+# * LIST CONTENTS OF DIRECTORY $ IN $
+#    | Takes a text and a text list variable and stores all the files in the directory named by the text in the list.
+#    | Complexity: O(n)
+
+procedure:
+sub-procedure std.getFilenames
+    # Created by fireasembler (github.com/fireasembler)
+    parameters:
+        directory is text
+        destination is text list
+    local data:
+        os is text
+        command is text
+        commandOutput is text
+    procedure:
+        in command join "find " directory "/* -maxdepth 0 -type f "
+        execute command and store output in commandOutput
+        split commandOutput by "\n" in destination
+end sub-procedure
+create statement "LIST CONTENTS OF DIRECTORY $ IN $" executing std.getFilenames
