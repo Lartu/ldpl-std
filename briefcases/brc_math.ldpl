@@ -136,11 +136,16 @@ create statement "DECR $" executing std.decr
 sub std.ceil
     parameters:
         var is number
+    local data:
+        int is number
     procedure:
-        incr var
-        floor var
+        store var in int
+        floor int
+        if int is not equal to var then
+            in var solve int + 1
+        end if
 end sub-procedure
-create statement "CEIL $" executing std.decr
+create statement "CEIL $" executing std.ceil
 
 sub std.abs
     parameters:
