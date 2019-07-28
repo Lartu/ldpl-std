@@ -50,14 +50,14 @@ sub-procedure std.displayNList
         i is number
     procedure:
         display "["
-        store length of listToPrint in listLength
+        get length of listToPrint in listLength
         for i from 0 to listLength step 1 do
             display listToPrint:i
-            decr listLength
+            in listLength solve listLength - 1
             if i is less than listLength then
                 display ", "
             end if
-            incr listLength
+            in listLength solve listLength + 1
         repeat
         display "]" crlf
 end sub-procedure
@@ -73,14 +73,14 @@ sub-procedure std.displayTList
         i is number
     procedure:
         display "["
-        store length of listToPrint in listLength
+        get length of listToPrint in listLength
         for i from 0 to listLength step 1 do
             display listToPrint:i
-            decr listLength
+            in listLength solve listLength - 1
             if i is less than listLength then
                 display ", "
             end if
-            incr listLength
+            in listLength solve listLength + 1
         repeat
         display "]" crlf
 end sub-procedure
@@ -98,8 +98,8 @@ sub-procedure std.sortNListAsc
         j is number
         swap is number
     procedure:
-        store length of listToSort in listLength
-        subtract 1 from listLength in listLength-1
+        get length of listToSort in listLength
+        in listLength-1 solve listLength - 1
 
         for i from 0 to listLength-1 step 1 do
             for j from 1 to listLength step 1 do
@@ -125,8 +125,8 @@ sub-procedure std.sortNListDesc
         j is number
         swap is number
     procedure:
-        store length of listToSort in listLength
-        subtract 1 from listLength in listLength-1
+        get length of listToSort in listLength
+        in listLength-1 solve listLength - 1
 
         for i from 0 to listLength-1 step 1 do
             for j from 1 to listLength step 1 do
@@ -182,8 +182,8 @@ sub-procedure std.spliceNList
         i is number
         newList is number list
     procedure:
-        store length of listToSplice in listLength
-        for i from 0 to listLength step 1 do 
+        get length of listToSplice in listLength
+        for i from 0 to listLength step 1 do
             if i is not equal to indexToSplice then
                 push listToSplice:i to newList
             end if
@@ -204,8 +204,8 @@ sub-procedure std.spliceTList
         i is number
         newList is text list
     procedure:
-        store length of listToSplice in listLength
-        for i from 0 to listLength step 1 do 
+        get length of listToSplice in listLength
+        for i from 0 to listLength step 1 do
             if i is not equal to indexToSplice then
                 push listToSplice:i to newList
             end if
@@ -224,14 +224,14 @@ sub-procedure std.reverseNList
         right is number
         swapAux is number
     procedure:
-        store length of listToReverse in right
-        decr right
+        get length of listToReverse in right
+        in right solve right - 1
         while left is less than right do
             store listToReverse:left in swapAux
             store listToReverse:right in listToReverse:left
             store swapAux in listToReverse:right
-            incr left
-            decr right
+            in left solve left + 1
+            in right solve right - 1
         repeat
 end sub-procedure
 create statement "FLIP LIST $" executing std.reverseNList
@@ -246,14 +246,14 @@ sub-procedure std.reverseTList
         right is number
         swapAux is text
     procedure:
-        store length of listToReverse in right
-        decr right
+        get length of listToReverse in right
+        in right solve right - 1
         while left is less than right do
             store listToReverse:left in swapAux
             store listToReverse:right in listToReverse:left
             store swapAux in listToReverse:right
-            incr left
-            decr right
+            in left solve left + 1
+            in right solve right - 1
         repeat
 end sub-procedure
 create statement "FLIP LIST $" executing std.reverseTList
