@@ -1,0 +1,222 @@
+# +----------------------------------------+
+# | LDPL STANDARD LIBRARY - TEXT BRIEFCASE |
+# +----------------------------------------+
+#
+# +-------------+
+# | Description |
+# +-------------+
+# This library includes functions to deal with text values.
+#
+# +------------------------------+
+# | STATEMENTS in this briefcase |
+# +------------------------------+
+# * SHIFT $ TO LOWER CASE IN $
+# * SHIFT $ TO UPPER CASE IN $
+# * SHIFT $ TO PROPER IN $
+#
+# +-----------------------------+
+# | Included STATEMENTS details |
+# +-----------------------------+
+# * SHIFT $ TO LOWER CASE IN $
+#    | Takes a text and a text variable and stores the text in all lower case letters in said variable.
+#    | Complexity: O(n)
+# * SHIFT $ TO UPPER CASE IN $
+#    | Takes a text and a text variable and stores the text in all upper case letters in said variable.
+#    | Complexity: O(n)
+# * SHIFT $ TO PROPER IN $
+#    | Takes a text and a text variable and stores the text with its first character in uppercase and the
+#    | rest lower case letters in said variable.
+#    | Complexity: O(n)
+
+procedure:
+sub-procedure std.textToLower
+    parameters:
+        string is text
+        destination is text
+    local data:
+        textLength is number
+        i is number
+        letter is text
+        charCode is number
+        newString is text
+    procedure:
+        store "" in newString
+        get length of string in textLength
+        for i from 0 to textLength step 1 do
+            get character at i from string in letter
+            get character code of letter in charCode
+            if errorcode is not equal to 1 then
+                # If it's an uppercase letter
+                if charCode is greater than or equal to 65 and charCode is less than or equal to 90 then
+                    in charCode solve charCode + 32
+                    get ascii character charCode in letter
+                end if
+            else
+                if letter is equal to "Á" then
+                    store "á" in letter
+                else if letter is equal to "É" then
+                    store "é" in letter
+                else if letter is equal to "Í" then
+                    store "í" in letter
+                else if letter is equal to "Ó" then
+                    store "ó" in letter
+                else if letter is equal to "Ú" then
+                    store "ú" in letter
+                else if letter is equal to "Ä" then
+                    store "ä" in letter
+                else if letter is equal to "Ë" then
+                    store "ë" in letter
+                else if letter is equal to "Ï" then
+                    store "ï" in letter
+                else if letter is equal to "Ö" then
+                    store "ö" in letter
+                else if letter is equal to "Ü" then
+                    store "ü" in letter
+                else if letter is equal to "Â" then
+                    store "â" in letter
+                else if letter is equal to "Ê" then
+                    store "ê" in letter
+                else if letter is equal to "Î" then
+                    store "î" in letter
+                else if letter is equal to "Ô" then
+                    store "ô" in letter
+                else if letter is equal to "Û" then
+                    store "û" in letter
+                else if letter is equal to "Ñ" then
+                    store "ñ" in letter
+                else if letter is equal to "Û" then
+                    store "û" in letter
+                else if letter is equal to "À" then
+                    store "à" in letter
+                else if letter is equal to "Ã" then
+                    store "ã" in letter
+                else if letter is equal to "Å" then
+                    store "å" in letter
+                else if letter is equal to "Æ" then
+                    store "æ" in letter
+                else if letter is equal to "Ç" then
+                    store "ç" in letter
+                else if letter is equal to "È" then
+                    store "è" in letter
+                else if letter is equal to "Ì" then
+                    store "ì" in letter
+                else if letter is equal to "Õ" then
+                    store "õ" in letter
+                else if letter is equal to "Ø" then
+                    store "ø" in letter
+                else if letter is equal to "Œ" then
+                    store "œ" in letter
+                end if
+            end if
+            in newString join newString letter
+        repeat
+        store newString in destination
+end sub-procedure
+create statement "SHIFT $ TO LOWER CASE IN $" executing std.textToLower
+
+sub-procedure std.textToUpper
+    parameters:
+        string is text
+        destination is text
+    local data:
+        textLength is number
+        i is number
+        letter is text
+        charCode is number
+        newString is text
+    procedure:
+        store "" in newString
+        get length of string in textLength
+        for i from 0 to textLength step 1 do
+            get character at i from string in letter
+            get character code of letter in charCode
+            if errorcode is not equal to 1 then
+                # If it's an uppercase letter
+                if charCode is greater than or equal to 97 and charCode is less than or equal to 122 then
+                    in charCode solve charCode - 32
+                    get ascii character charCode in letter
+                end if
+            else
+                if letter is equal to "á" then
+                    store "Á" in letter
+                else if letter is equal to "é" then
+                    store "É" in letter
+                else if letter is equal to "í" then
+                    store "Í" in letter
+                else if letter is equal to "ó" then
+                    store "Ó" in letter
+                else if letter is equal to "ú" then
+                    store "Ú" in letter
+                else if letter is equal to "ä" then
+                    store "Ä" in letter
+                else if letter is equal to "ë" then
+                    store "Ë" in letter
+                else if letter is equal to "ï" then
+                    store "Ï" in letter
+                else if letter is equal to "ö" then
+                    store "Ö" in letter
+                else if letter is equal to "ü" then
+                    store "Ü" in letter
+                else if letter is equal to "â" then
+                    store "Â" in letter
+                else if letter is equal to "ê" then
+                    store "Ê" in letter
+                else if letter is equal to "î" then
+                    store "Î" in letter
+                else if letter is equal to "ô" then
+                    store "Ô" in letter
+                else if letter is equal to "û" then
+                    store "Û" in letter
+                else if letter is equal to "ñ" then
+                    store "Ñ" in letter
+                else if letter is equal to "û" then
+                    store "Û" in letter
+                else if letter is equal to "à" then
+                    store "À" in letter
+                else if letter is equal to "ã" then
+                    store "Ã" in letter
+                else if letter is equal to "å" then
+                    store "Å" in letter
+                else if letter is equal to "æ" then
+                    store "Æ" in letter
+                else if letter is equal to "ç" then
+                    store "Ç" in letter
+                else if letter is equal to "è" then
+                    store "È" in letter
+                else if letter is equal to "ì" then
+                    store "Ì" in letter
+                else if letter is equal to "õ" then
+                    store "Õ" in letter
+                else if letter is equal to "ø" then
+                    store "Ø" in letter
+                else if letter is equal to "œ" then
+                    store "Œ" in letter
+                end if
+            end if
+            in newString join newString letter
+        repeat
+        store newString in destination
+end sub-procedure
+create statement "SHIFT $ TO UPPER CASE IN $" executing std.textToUpper
+
+sub-procedure std.textToUCaseFirst
+    parameters:
+        string is text
+        destination is text
+    local data:
+        textLength is number
+        firstChar is text
+        remainder is text
+    procedure:
+        get length of string in textLength
+        if textLength is equal to 0 then
+            store "" in destination
+            return
+        end if
+        get character at 0 from string in firstChar
+        shift firstChar to upper case in firstChar
+        substring string from 1 length textLength in remainder
+        shift remainder to lower case in remainder
+        in destination join firstChar remainder
+end sub-procedure
+create statement "SHIFT $ TO PROPER IN $" executing std.textToUCaseFirst
