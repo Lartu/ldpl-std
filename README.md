@@ -19,7 +19,7 @@ Just download the briefcase you want and IMPORT it in your LDPL source file.
 For example, if you want to include the file `brc_lists.ldpl` you must add
 the line
 
-`IMPORT "/route/to/std-lists.ldpl"`
+`INCLUDE "/route/to/std-lists.ldpl"`
 
 before the `DATA:` and `PROCEDURE:` sections.
 
@@ -47,6 +47,14 @@ Every statement is documented in more detail in their own briefcase file.
    - `GET RANDOM INTEGER BETWEEN $ AND $ IN $`
    - `GET RANDOM ELEMENT FROM LIST $ IN $`
    - `SHUFFLE LIST $`
+   
+ - **brc_os.ldpl** (operating system statements):
+   - `LIST CONTENTS OF DIRECTORY $ IN $`
+   
+ - **brc_text.ldpl** (text statements):
+   - `SHIFT $ TO LOWER CASE IN $`
+   - `SHIFT $ TO UPPER CASE IN $`
+   - `SHIFT $ TO PROPER IN $`
 
 ## License
 
