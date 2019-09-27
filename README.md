@@ -17,22 +17,39 @@ corrections and feedback are most certainly welcome as well.
 
 ## How to use the LDPL Standard Library
 
-Just download the briefcase you want and IMPORT it in your LDPL source file.
-For example, if you want to include the file `brc_lists.ldpl` you must add
+Most of the time you won't need the entire Standard Library for a single project,
+so you can just get the briefcases you are going to use. You can do this **by hand**
+or **using [LPM](https://github.com/lartu/lpm)** (the LDPL Package Manager).
+
+### 📦 Installing a briefcase using LPM
+
+Open a terminal and write `lpm install <briefcase-name>` to install the desired briefcase.
+Available briefcases are `std-list` (list statements), `std-math` (math statements),
+`std-text` (text statements), `std-os` (operating system functions) and `std-random` (random
+number generation and statements).
+
+For example: `lpm install std-random`.
+
+To include the downloaded briefcase in your project add the line `USING PACKAGE <briefcase-name>`
+before the `DATA:` and `PROCEDURE:` sections.
+
+For example: `USING PACKAGE std-random`.
+
+### ✋🏻 Installing a briefcase by hand
+
+Just download the briefcase you want and include it in your LDPL source file.
+For example, if you want to include the file `brc_lists.ldpl` you should add
 the line
 
 `INCLUDE "/route/to/std-lists.ldpl"`
 
 before the `DATA:` and `PROCEDURE:` sections.
 
-**Note:** please bear in mind that at the moment the LDPL Standard Library only works with [this experimental LDPL branch](https://github.com/Lartu/ldpl/pull/124), so if by the time you read this that particular branch hasn't been merged into master, you'll have to
-pull from it in order to use the library.
-
 ## Statements included in every briefcase
 
 Every statement is documented in more detail in their own briefcase file.
 
-- **brc_lists.ldpl** (`LIST` statements):
+- **std-lists.ldpl** (`LIST` statements):
    - `DISPLAY LIST $`
    - `SORT LIST $ ASCENDING`
    - `SORT LIST $ DESCENDING`
@@ -40,20 +57,20 @@ Every statement is documented in more detail in their own briefcase file.
    - `SPLICE ELEMENT $ OF LIST $`
    - `FLIP LIST $`
 
-- **brc_math.ldpl** (mathematical statements):
+- **std-math.ldpl** (mathematical statements):
    - `FIND SQUARE ROOT OF $ IN $`
    - `PI` constant
 
-- **brc_random.ldpl** (random statements):
+- **std-random.ldpl** (random statements):
    - `GET RANDOM BETWEEN $ AND $ IN $`
    - `GET RANDOM INTEGER BETWEEN $ AND $ IN $`
    - `GET RANDOM ELEMENT FROM LIST $ IN $`
    - `SHUFFLE LIST $`
    
- - **brc_os.ldpl** (operating system statements):
+ - **std-os.ldpl** (operating system statements):
    - `LIST CONTENTS OF DIRECTORY $ IN $`
    
- - **brc_text.ldpl** (text statements):
+ - **std-text.ldpl** (text statements):
    - `SHIFT $ TO LOWER CASE IN $`
    - `SHIFT $ TO UPPER CASE IN $`
    - `SHIFT $ TO PROPER IN $`
