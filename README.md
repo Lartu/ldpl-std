@@ -45,9 +45,9 @@ the line
 
 before the `DATA:` and `PROCEDURE:` sections.
 
-## Statements included in every briefcase
+## Statements included in each briefcase
 
-Every statement is documented in more detail in their own briefcase file.
+Every statement is documented in more detail within its own briefcase file.
 
 - **std-lists.ldpl** (`LIST` statements):
    - `DISPLAY LIST $`
