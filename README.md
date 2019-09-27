@@ -38,7 +38,7 @@ For example: `USING PACKAGE std-random`.
 ### ✋🏻 Installing a briefcase by hand
 
 Just download the briefcase you want and include it in your LDPL source file.
-For example, if you want to include the file `brc_lists.ldpl` you should add
+For example, if you want to include the file `std-lists.ldpl` you should add
 the line
 
 `INCLUDE "/route/to/std-lists.ldpl"`
