@@ -49,7 +49,7 @@ before the `DATA:` and `PROCEDURE:` sections.
 
 Every statement is documented in more detail within its own briefcase file.
 
-- **std-lists.ldpl** (`LIST` statements):
+- **std-list.ldpl** (`LIST` statements):
    - `DISPLAY LIST $`
    - `SORT LIST $ ASCENDING`
    - `SORT LIST $ DESCENDING`
