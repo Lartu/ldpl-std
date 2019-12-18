@@ -69,6 +69,10 @@ Every statement is documented in more detail within its own briefcase file.
    
  - **std-os.ldpl** (operating system statements):
    - `LIST CONTENTS OF DIRECTORY $ IN $`
+   - `GET CURRENT DAY IN $`
+   - `GET CURRENT MONTH IN $`
+   - `GET CURRENT YEAR IN $`
+   - `GET CURRENT TIME IN $ $ $`
    
  - **std-text.ldpl** (text statements):
    - `SHIFT $ TO LOWER CASE IN $`

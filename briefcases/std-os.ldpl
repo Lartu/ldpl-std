@@ -18,6 +18,14 @@
 # * LIST CONTENTS OF DIRECTORY $ IN $
 #    | Takes a text and a text list variable and stores all the files in the directory named by the text in the list.
 #    | Complexity: O(n)
+# * GET CURRENT DAY IN $
+#    | Gets the current day in the number variable passed as $
+# * GET CURRENT MONTH IN $
+#    | Gets the current month in the number variable passed as $
+# * GET CURRENT YEAR IN $
+#    | Gets the current year in the number variable passed as $
+# * GET CURRENT TIME IN $ $ $
+#    | Gets the current hours, minutes and seconds in the number variables passed as $, $ and $.
 
 procedure:
 sub-procedure std.getFilenames
@@ -35,3 +43,59 @@ sub-procedure std.getFilenames
         split commandOutput by "\n" in destination
 end sub-procedure
 create statement "LIST CONTENTS OF DIRECTORY $ IN $" executing std.getFilenames
+
+sub std.get_month
+  parameters:
+    date is number
+  local data: 
+    date_text is text
+  procedure:
+    execute "date +%m" and store output in date_text
+    trim date_text in date_text
+    store date_text in date
+end sub
+create statement "GET CURRENT MONTH $" executing std.get_month
+
+sub std.get_day
+  parameters:
+    day is number
+  local data:
+    date_text is text
+  procedure:
+    execute "date +%d" and store output in date_text
+    trim date_text in date_text
+    store date_text in day
+end sub
+create statement "GET CURRENT DAY $" executing std.get_day
+
+sub std.get_year
+  parameters:
+    year is number
+  local data:
+    date_text is text
+  procedure:
+    execute "date +%Y" and store output in date_text
+    trim date_text in date_text
+    store date_text in year
+end sub
+create statement "GET CURRENT YEAR $" executing std.get_year
+
+sub std.get_time
+  parameters:
+    hours is number
+    minutes is number
+    seconds is number
+  local data:
+    date_text is text
+  procedure:
+    execute "date +%H" and store output in date_text
+    trim date_text in date_text
+    store date_text in hours
+    execute "date +%M" and store output in date_text
+    trim date_text in date_text
+    store date_text in minutes
+    execute "date +%S" and store output in date_text
+    trim date_text in date_text
+    store date_text in seconds
+end sub
+create statement "GET CURRENT TIME IN $ $ $" executing std.get_time
