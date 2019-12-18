@@ -1,4 +1,4 @@
-![The LDPL Standard Library](https://raw.githubusercontent.com/Lartu/ldpl-std/master/images/logo-readme.png)
+![The LDPL Standard Library](images/logo-readme.png)
 
 # The LDPL Standard Library
 This repository contains the LDPL Standard Library, a collection of
