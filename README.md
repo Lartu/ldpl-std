@@ -5,7 +5,6 @@
   <img src="https://img.shields.io/badge/current_release-1.7-blue.svg?style=flat-square">
 </p>
 
-# The LDPL Standard Library
 This repository contains the LDPL Standard Library, a collection of
 LDPL libraries that contain many useful pre-written statements for the
 [LDPL Programming Language](https://github.com/lartu/ldpl)
@@ -20,7 +19,7 @@ includes many statements designed for working with LIST values, like `FLIP LIST`
 New statements and entire briefcases are very welcome contributions,
 corrections and feedback are most certainly welcome as well.
 
-## How to use the LDPL Standard Library
+## :detective: How to use the LDPL Standard Library
 
 Most of the time you won't need the entire Standard Library for a single project,
 so you can just get the briefcases you are going to use. You can do this **by hand**
@@ -50,7 +49,7 @@ the line
 
 before the `DATA:` and `PROCEDURE:` sections.
 
-## Statements included in each briefcase
+## :books: Statements included in each briefcase
 
 Every statement is documented in more detail within its own briefcase file.
 
@@ -84,6 +83,6 @@ Every statement is documented in more detail within its own briefcase file.
    - `SHIFT $ TO UPPER CASE IN $`
    - `SHIFT $ TO PROPER IN $`
 
-## License
+## :scroll: License
 
 The LDPL Standard Library is distributed under the MIT License. LDPL is distributed under the GNU General Public License 3.0. All LDPL Dinosaur logos where created by [Lartu](https://github.com/Lartu) and are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
