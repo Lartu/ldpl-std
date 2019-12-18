@@ -1,4 +1,9 @@
-![The LDPL Standard Library](images/logo-readme.png)
+<p align="center">
+  <img src="https://github.com/Lartu/ldpl-std/blob/master/images/logo-readme.png">
+  <br><br>
+  <img src="https://img.shields.io/badge/license-MIT-yellow?style=flat-square">
+  <img src="https://img.shields.io/badge/current_release-1.7-blue.svg?style=flat-square">
+</p>
 
 # The LDPL Standard Library
 This repository contains the LDPL Standard Library, a collection of
