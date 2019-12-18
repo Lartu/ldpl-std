@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/current_release-1.7-blue.svg?style=flat-square">
 </p>
 
-This repository contains the LDPL Standard Library, a collection of
+This repository contains the **LDPL Standard Library**, a collection of
 LDPL libraries that contain many useful pre-written statements for the
 [LDPL Programming Language](https://github.com/lartu/ldpl)
 that are not included in the base language.
